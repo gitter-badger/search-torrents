@@ -6,7 +6,7 @@ import Q from "q";
 /**
  * base provider class
  */
-export default class Provider {
+export class Provider {
 
 	constructor(urlParams, getParams, responseFormat) {
 		this._urlParams = urlParams;
@@ -74,7 +74,7 @@ export default class Provider {
 	}
 
 	/**
-	 * called from the subclass after json/html was parsed and 
+	 * called from the subclass after json/html was parsed and
 	 * we generate the result object
 	 */
 	buildResult(data , torrentResultList, deferred) {
@@ -129,7 +129,7 @@ export default class Provider {
 
 	/**
 	 * getters
-	 */ 
+	 */
 
 	get getparams() { return this._getParams; }
 	get name() { return this.constructor.name; }

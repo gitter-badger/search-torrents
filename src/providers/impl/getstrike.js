@@ -1,6 +1,6 @@
 "use strict"
 
-import Provider from './provider.js'
+import Provider from '../provider.js'
 import moment from 'moment'
 
 export class getstrike extends Provider {
