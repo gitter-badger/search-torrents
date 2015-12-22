@@ -10,10 +10,20 @@ It's only a component, not a full-featured application like
 Written in ES6 compiled with babel to ES5. You can use optionally
 traceur, but not tested.
 
-Run
+N.B. If you are in a country where the internet is censored, you will need a VPN at the moment to run this script, else it will fail with an error whilst retrieving content.
+
+Dependencies
+--
+Babel ( https://babeljs.io/ )
+
+Install & Run
 --
 
-node example.js
+<code>npm install babel</code>
+
+<code>npm run build:babel</code>
+
+<code>node example.js</code>
 
 Develop
 --
