@@ -24,11 +24,11 @@ Install & Run
 <code>npm run build:babel</code>
 
 open providers:
-* <code>node example.js<code>
+* <code>node example.js</code>
 
 providers with authentication:
 * create authconfig.json (see authexample.js)
-* <code>node authexample.js<code>
+* <code>node authexample.js</code>
 
 Develop
 --
