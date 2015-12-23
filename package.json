@@ -14,7 +14,7 @@
     "build:traceur": "traceur --dir src/ dist/traceur/",
     "build:babel": "babel --presets es2015 src --out-dir dist/babel/",
     "build:watch": "parallelshell 'npm run watch:js'",
-    "build": "npm run build:traceur && npm run build:babel"
+    "build": "npm run build:babel"
   },
   "repository": {
     "type": "git",
@@ -35,6 +35,7 @@
     "moment": "^2.10.6",
     "q": "^1.4.1",
     "request": "^2.67.0",
-    "require-dir": "^0.3.0"
+    "require-dir": "^0.3.0",
+    "tough-cookie-filestore": "0.0.1"
   }
 }

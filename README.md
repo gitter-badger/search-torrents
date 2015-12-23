@@ -10,10 +10,24 @@ It's only a component, not a full-featured application like
 Written in ES6 compiled with babel to ES5. You can use optionally
 traceur, but not tested.
 
+Providers & Providers with authentication
+--
+
+with auth: bithumen, ncore
+
+open: btdigg, cpasbien, extratorrent, eztv, getstrike, kickass, leetx, limetorrents,
+nyaa, rarbg, seedpeer, tokyotosho, tpb, yts
+
+
 Run
 --
 
-node example.js
+open providers:
+* node example.js
+
+providers with authentication:
+* create authconfig.json (see authexample.js)
+* node authexample.js
 
 Develop
 --

@@ -3,8 +3,11 @@
 //get access to api
 var searchApi = new (require('./dist/babel/searchtorrents.js').searchtorrents)();
 
+console.log("Available providers are: "  + searchApi.availableProviderNames);
 //init
-searchApi.initProviders();
+searchApi.initProvider('kickass');
+searchApi.initProvider('leetx');
+searchApi.initProvider('getstrike');
 
 //do a search on every provider
 for(var providerName of searchApi.providers.keys()) {
@@ -15,3 +18,5 @@ for(var providerName of searchApi.providers.keys()) {
 		console.error(error);
 	});
 }
+
+console.log('This is the end..');

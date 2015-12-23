@@ -1,6 +1,6 @@
 "use strict"
 
-import request from "request";
+import r from "request";
 import cheerio from "cheerio";
 import Q from "q";
 /**
@@ -12,6 +12,10 @@ export class Provider {
 		this._urlParams = urlParams;
 		this._getParams = getParams;
 		this._responseFormat = responseFormat;
+		this._cheerio = cheerio;
+		this._request = r;
+		this._lastQuery = undefined;
+		this._requestOptions = { };
 	}
 
 	/**
@@ -100,11 +104,17 @@ export class Provider {
 	 * 'processResponse' should be overridden in subclasses!
 	 */
 	search(query) {
+
 		var deferred = Q.defer();
 		var scope = this;
-	 	query = this.getSearchUrl(query);
-		console.log('calling url: ' + query + " response format:" + scope.responseFormat);
-		request(query, function (err, response, body) {
+		this._requestOptions['url'] = this.getSearchUrl(query);
+
+		console.log('calling url: ' + this.requestOptions.url + " response format:" + scope.responseFormat);
+		//save for future use
+		this.lastQuery = query;
+
+		//do request
+		this.request(this.requestOptions, function (err, response, body) {
 			if (!err && response.statusCode === 200) {
 				var data;
 				var torrentResultList = [];
@@ -135,10 +145,20 @@ export class Provider {
 	get name() { return this.constructor.name; }
 	get baseUrl() { return this._urlParams.baseUrl; }
 	get searchHierPart() { return this._urlParams.searchHierPart; }
+	get searchUrl() { return this.baseUrl + this.searchHierPart; }
 	get hierEscapeChar() {
 		return this._urlParams.hierEscapeChar ? this._urlParams.hierEscapeChar : '-';
 	}
 	get responseFormat() { return this._responseFormat; }
+
+	get lastQuery() { return this._lastQuery; }
+	set lastQuery(value) { this._lastQuery = value; }
+
+	//set getters/setters for http client & dom processor
+	get cheerio() { return this._cheerio; }
+	get request() { return this._request; }
+	set request(value) { this._request = value; }
+	get requestOptions() { return this._requestOptions; }
 }
 
 module.exports = Provider;
