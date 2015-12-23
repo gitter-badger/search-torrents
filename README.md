@@ -1,5 +1,7 @@
 # search-torrents
 
+[![Join the chat at https://gitter.im/94b/search-torrents](https://badges.gitter.im/94b/search-torrents.svg)](https://gitter.im/94b/search-torrents?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Goal
 
 is to provide a simple search api for torrent sites,
